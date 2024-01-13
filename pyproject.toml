@@ -1,0 +1,22 @@
+# pyproject.toml
+
+[tool.black]
+line-length = 88  # Set your preferred line length
+target-version = ['py311']  # Set your target Python version
+include = '\\.pyi?$'
+exclude = '''
+    /(
+        \.git
+        | \.hg
+        | \.mypy_cache
+        | \.tox
+        | \.venv
+        | _build
+        | buck-out
+        | build
+        | dist
+    )/
+'''
+
+[tool.mypy]
+ignore_missing_imports = true

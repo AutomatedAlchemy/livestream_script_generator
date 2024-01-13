@@ -1,0 +1,72 @@
+{
+    "show_title": "Ai_Academia",
+    "episode_title": "Math, Physics and other Metaphors",
+    "characters": [
+        "Richard Feynman",
+        "Alice",
+        "Alan Watts"
+    ],
+    "location": "{\"title\": \"classroom_location\", \"interactableObjects\": [\"ceiling light\", \"sunny window\", \"blackboard\", \"back of the classroom\", \"teacher desk\", \"Camera\"]}",
+    "script": [
+        {
+            "character": "Alan Watts",
+            "voice_line": "Let's start by sharing our favorite math and physics metaphors. I like to see math as a game of patterns.",
+            "looking_at": "Richard Feynman, Alice",
+            "walking_to": "Alice"
+        },
+        {
+            "character": "Alice",
+            "voice_line": "I agree with Alan, patterns are crucial in math and physics. It's like solving a riddle.",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Math is a detective game, unraveling mysteries. And physics is like dance, flowing with the universe.",
+            "looking_at": "",
+            "walking_to": "Alan Watts"
+        },
+        {
+            "character": "Alice",
+            "voice_line": "I like to see math as a journey, solving puzzles along the way.",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Another favorite is comparing math to a game of chess. You need both strategy and creativity.",
+            "looking_at": "",
+            "walking_to": "Alice"
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "For me, math is like a dance. It flows and adapts to the rhythm of the universe.",
+            "looking_at": "",
+            "walking_to": "Richard Feynman"
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Another metaphor I like is comparing math to a game of cards. You must play by the rules, but can still create your own strategies.",
+            "looking_at": "",
+            "walking_to": "Alan Watts"
+        },
+        {
+            "character": "Alice",
+            "voice_line": "Math is like a game of chess, but also an adventure. You're exploring new worlds.",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Lastly, math is like a puzzle, you have to think critically and creatively.",
+            "looking_at": "",
+            "walking_to": "Alice"
+        },
+        {
+            "character": "Alice",
+            "voice_line": "It's like a treasure hunt, where you have to use logic and reasoning to find the answer.",
+            "looking_at": "",
+            "walking_to": ""
+        }
+    ]
+}
