@@ -65,7 +65,7 @@ def simplify_json(json: str):
 def synthesize_speech(
     text,
     episode_identifier: str,
-    output_file_path: str,
+    output_folder_path: str,
     speaker_wav: str | None = None,
     model="tts_models/multilingual/multi-dataset/xtts_v2",
     export_to_unity: bool = True,
@@ -78,14 +78,14 @@ def synthesize_speech(
         text=text,
         speaker_wav=speaker_wav,
         language="en" if speaker_wav else None,
-        file_path=output_file_path,
+        file_path=os.path.join(output_folder_path,episode_identifier),
     )
     if export_to_unity:
         unity_episode_path = f"{streaming_assets_path}{episode_identifier}"
         if not os.path.exists(unity_episode_path):
             os.makedirs(unity_episode_path)
         try:
-            shutil.copy(output_file_path, f"{unity_episode_path}/{output_file_path}")
+            shutil.copy(output_folder_path, f"{unity_episode_path}/{output_folder_path}")
         except Exception as e:
             print(f"Failed to copy file: {e}")
 
