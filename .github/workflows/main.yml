@@ -1,0 +1,23 @@
+name: Python Application Deployment
+
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x' # Replace with your Python version
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run Python application
+      run: python main.py -p # Replace with your Python script
