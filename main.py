@@ -64,8 +64,8 @@ def simplify_json(json: str):
 
 def synthesize_speech(
     text,
-    episode_identifier: str,
     output_folder_path: str,
+    episode_identifier: str,
     speaker_wav: str | None = None,
     model="tts_models/multilingual/multi-dataset/xtts_v2",
     export_to_unity: bool = True,
@@ -171,12 +171,14 @@ def get_episode():
                 f"\033[38;5;255mAverage Time for {llm_name} to produce script: {average_time:.0f} seconds\033[0m"
             )
             
-        app.logger.info(f"get_episode_path: " + jsonify({"episode_path": unity_episode_path}))
+        episode_path_info = json.dumps({"episode_path": unity_episode_path})
+        app.logger.info(f"get_episode_path: {episode_path_info}")
+
         return jsonify({"episode_path": unity_episode_path})
     except Exception as e:
         app.logger.error(f"An error occurred: {e}")
 
-        return ""
+        return f"A python-side error ocurred: {e}"
 
 
 @app.route("/set_supported_scenes", methods=["POST"])
