@@ -5,3 +5,4 @@ pydub
 colorama
 jinja2
 requests
+TTS
