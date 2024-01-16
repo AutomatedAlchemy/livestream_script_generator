@@ -1,8 +1,1 @@
-torch
-python-dotenv
 flask
-pydub
-colorama
-jinja2
-requests
-TTS
