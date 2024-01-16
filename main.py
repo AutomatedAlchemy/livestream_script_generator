@@ -22,10 +22,6 @@ from interface.cls_ollama_client import OllamaClient
 if not os.path.exists("./logs"):
     os.mkdir("./logs")
 
-# Setup file handler
-file_handler = RotatingFileHandler(
-    "./logs/logfile.log", maxBytes=1024 * 1024 * 100, backupCount=20
-)
 logging.basicConfig(
     level=logging.ERROR, format="%(asctime)s %(levelname)s %(name)s %(message)s"
 )
@@ -37,11 +33,13 @@ parser = argparse.ArgumentParser(
 parser.add_argument(
     "-p", "--prod", action="store_true", help="Run in production environment"
 )
+
 args = parser.parse_args()
+
 streaming_assets_path: str
 if args.prod:
     print("Running in production mode")
-    streaming_assets_path = "C:/Users/Steffen/ai_livestream_URP/Assets/StreamingAssets/"
+    streaming_assets_path = ""
 else:
     print("Running in development mode")
     streaming_assets_path = "C:/Users/Steffen/ai_livestream_URP/Assets/StreamingAssets/"
@@ -50,16 +48,43 @@ llm_logging: Dict[str, List[float]] = {}
 current_llm_i: int = -1
 current_episode_i: int = 0
 episode_titles_to_choose_from = [
-    "Math, Physics and other Metaphors",
-    "The Quantum Dance: Exploring Uncertainty",
-    "Minds and Machines: The Philosophy of AI",
-    "The Poetry of Physics: Unveiling the Cosmos",
-    "Alice's Algorithm: Adventures in Learning",
-    "Watts' Wisdom: The Nature of Consciousness",
-    "Feynman's Frontier: Discovering Nano Realms",
-    "Socratic Dialogues: AI and Ethics",
-    "Through the Looking Glass: Virtual Realities",
-    "Einstein's Echo: Relativity in Modern Times",
+    "Logic in Computer Science",
+    "Predicate Logic",
+    "Natural Deduction",
+    "Fitch Notation",
+    "Coq Proof Assistant",
+    "Group Theory",
+    "Logical Paradoxes",
+    "Practical Exercises",
+    "Advanced Logic Topics (Optional)",
+    "Advanced Predicate Logic",
+    "Fitch-style Proof Techniques",
+    "Coq Proof Assistant Mastery",
+    "Group Theory Applications",
+    "Logic Puzzles and Paradoxes",
+    "The cult of done",
+    "The cult of done manifesto",
+    # "Boilerplate coding",
+    # "Boilerplate programming",
+    # "No Boilerplate programming as a paradigm",
+    # "No Boilerplate",
+    # "How to think about injectivity in math",
+    # "How to think about surjectivity in math",
+    # "How to think about bijectivity in math",
+    # "mapping properties",
+    # "injectivity",
+    # "surjectivity",
+    # "bijectivity",
+    # "Math, Physics and other Metaphors",
+    # "The Quantum Dance: Exploring Uncertainty",
+    # "Minds and Machines: The Philosophy of AI",
+    # "The Poetry of Physics: Unveiling the Cosmos",
+    # "Alice's Algorithm: Adventures in Learning",
+    # "Watts' Wisdom: The Nature of Consciousness",
+    # "Feynman's Frontier: Discovering Nano Realms",
+    # "Socratic Dialogues: AI and Ethics",
+    # "Through the Looking Glass: Virtual Realities",
+    # "Einstein's Echo: Relativity in Modern Times",
 ]
 llms = [
     # "codellama:7b",
@@ -108,14 +133,12 @@ def synthesize_speech(
         speaker_wav=voice_example_wav,
         language="en" if voice_example_wav else None,
         file_path=os.path.join(output_folder_path, episode_identifier),
+        speed=1.2
     )
 
 
 # initialize global variable
 supported_scenes: SupportedScenes
-
-app = Flask(__name__)
-app.logger.addHandler(file_handler)
 
 # Initialize the Livestream object
 livestream = Livestream(
@@ -126,6 +149,8 @@ livestream = Livestream(
 def generate_episodes():
     global llm_logging, current_llm_i, current_episode_i, llm
     while True:
+        set_supported_scenes()
+        
         while (
             len(os.listdir("./unreleased_episodes/")) > 10
             or not "supported_scenes" in globals()
@@ -136,21 +161,37 @@ def generate_episodes():
                 )
             time.sleep(10)
         try:
-            if current_llm_i == len(llms) - 1:
-                current_episode_i += 1
-                current_llm_i = 0
-            else:
-                current_llm_i += 1
+            
+            # # Iterate through all titles and llms
+            # if current_llm_i == len(llms) - 1:
+            #     current_episode_i += 1
+            #     current_llm_i = 0
+            # else:
+            #     current_llm_i += 1
 
+            # if current_episode_i == len(episode_titles_to_choose_from) - 1:
+            #     current_episode_i = 0
+                
+                
+            # Iterate through all llms and titles
             if current_episode_i == len(episode_titles_to_choose_from) - 1:
-                current_episode_i = -1
+                current_llm_i += 1
+                current_episode_i = 0
+            else:
+                current_episode_i += 1
+
+            if current_llm_i == len(llms) - 1:
+                current_llm_i = 0
+            
+            #iterate first through all titles and then llms
+            
             episode_title = episode_titles_to_choose_from[current_episode_i]
             llm = llms[current_llm_i]
+            
+            
             start_time = time.time()  # Start timer
 
             episode_identifier = sanitize_filename(f"{llm}_{episode_title}")
-
-            unreleased_path = f"./unreleased_episodes/{episode_identifier}"
 
             WIP_path = f"./WIP_episode/{episode_identifier}"  # Clean working folder
             if os.path.exists("./WIP_episode/"):
@@ -160,6 +201,10 @@ def generate_episodes():
             episode = livestream.generate_episode(episode_title, supported_scenes, llm)
             script_generation_time = time.time() - start_time
 
+            # write script to WIP
+            with open(WIP_path + "/script.json", "w") as json_file:
+                json_file.write(episode.to_json())
+            # generate voices
             for i, action in enumerate(episode.script):
                 if action.voice_line:
                     if action.character == "Richard Feynman":
@@ -186,16 +231,14 @@ def generate_episodes():
                 print(
                     f"\033[38;5;214mGenerating voices: {i+1}/{len(episode.script)}\033[0m"
                 )
-
-            # write script to WIP
-            with open(WIP_path + "/script.json", "w") as json_file:
-                json_file.write(episode.to_json())
             
             # move Episode from WIP to ready
             episode_version = 0
-            while os.path.exists(f"/unreleased_episodes/{episode_version}_{unreleased_path}"):
+            while os.path.exists(f"./unreleased_episodes/{episode_version}_{episode_identifier}") or os.path.exists(f"./released_episodes/{episode_version}_{episode_identifier}"):
                 episode_version += 1
-            shutil.copytree(WIP_path, f"/unreleased_episodes/{episode_version}_{unreleased_path}")
+            shutil.copytree(WIP_path, f"./unreleased_episodes/{episode_version}_{episode_identifier}")
+            print(WIP_path)
+            print(f"./unreleased_episodes/{episode_version}_{episode_identifier}")
             shutil.rmtree(WIP_path)
 
             # logging llm info
@@ -208,78 +251,31 @@ def generate_episodes():
             # logging: Script speed evaluation printing
             for llm_name in llm_logging.keys():
                 average_time = sum(llm_logging[llm_name]) / len(llm_logging[llm_name])
-                # print(
-                #     f"\033[38;5;255mAverage Time for {llm_name} to produce script: {average_time:.0f} seconds\033[0m"
-                # )
-                app.logger.info(
+                print(
                     f"\033[38;5;255mAverage Time for {llm_name} to produce script: {average_time:.0f} seconds\033[0m"
                 )
+                # app.logger.info(
+                #     f"\033[38;5;255mAverage Time for {llm_name} to produce script: {average_time:.0f} seconds\033[0m"
+                # )
 
         except Exception as e:
             logger.exception(f"An error occurred: {e}")
             time.sleep(1)
 
 
-@app.route("/get_episode", methods=["GET"])
-def get_episode():
-    try:
-        boosted_episodes = []  # For donations and such to play the episode quickly
-        unreleased_episodes = boosted_episodes + os.listdir("./unreleased_episodes/")
-        released_episodes = os.listdir("./released_episodes/")
 
-        if len(unreleased_episodes) == 0 and len(released_episodes) == 0:
-            while len(os.listdir("./unreleased_episodes/")) == 0:
-                logging.debug("Waiting for generated content. Sleeping for 10 seconds...")
-                time.sleep(10)
-        elif len(released_episodes) > 0:
-            logging.debug("Fallback to replaying old episode.")
-            episode_to_release = random.choice(released_episodes)
-            shutil.copytree(
-                f"./released_episodes/{episode_to_release}",
-                f"./unreleased_episodes/{episode_to_release}",
-            )
-            shutil.rmtree(f"./released_episodes/{episode_to_release}")
-            unreleased_episodes = os.listdir("./unreleased_episodes/")
-
-        episode_to_release = random.choice(unreleased_episodes[:3])
-        logging.info(f"Selected new episode for release: {episode_to_release}")
-
-        unity_episode_path = os.path.join(streaming_assets_path, episode_to_release)
-
-        if os.path.exists(unity_episode_path):
-            shutil.rmtree(unity_episode_path)
-
-        shutil.copytree(
-            "./unreleased_episodes/" + episode_to_release, unity_episode_path
-        )
-        shutil.copytree(
-            "./unreleased_episodes/" + episode_to_release,
-            "./released_episodes/" + episode_to_release,
-        )
-        shutil.rmtree("./unreleased_episodes/" + episode_to_release)
-
-        app.logger.info(f"Released episode: {episode_to_release}")
-        return jsonify({"episode": episode_to_release})
-    except Exception as e:
-        logger.exception(f"An error occurred: {e}")
-        return f"A python-side error ocurred: {e}"
-
-
-@app.route("/set_supported_scenes", methods=["POST"])
 def set_supported_scenes():
     global supported_scenes
+
+    # Assuming 'file_path' is a key in the JSON data of the POST request
     data = request.json
-    print(data)
-    supported_scenes = SupportedScenes.from_json(json.dumps(data))
+    file_path = data['file_path']
 
-    return "Supported scenes set successfully!"
+    # Reading the JSON data from the specified file
+    with open(file_path, 'r') as file:
+        file_data = json.load(file)
 
+    print(file_data)
+    supported_scenes = SupportedScenes.from_json(json.dumps(file_data))
 
-if __name__ == "__main__":
-    # Start the background task
-    thread = threading.Thread(target=generate_episodes)
-    thread.daemon = (
-        True  # This ensures the thread will be killed when the main thread is killed
-    )
-    thread.start()
-    app.run(debug=False, host="localhost", port=5000)
+    print("Supported scenes set successfully!")
