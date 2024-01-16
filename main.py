@@ -267,9 +267,7 @@ def generate_episodes():
 def set_supported_scenes():
     global supported_scenes
 
-    # Assuming 'file_path' is a key in the JSON data of the POST request
-    data = request.json
-    file_path = data['file_path']
+    file_path = "./shared/supported_scenes.json"
 
     # Reading the JSON data from the specified file
     with open(file_path, 'r') as file:
