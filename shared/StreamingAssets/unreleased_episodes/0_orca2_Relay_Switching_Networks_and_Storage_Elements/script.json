@@ -1,0 +1,36 @@
+{
+    "show_title": "Ai_Academia",
+    "episode_title": "Relay Switching Networks and Storage Elements",
+    "characters": [
+        "Richard Feynman",
+        "Alice",
+        "Alan Watts"
+    ],
+    "location": "{\"title\": \"classroom_location\", \"interactableObjects\": [\"ceiling light\", \"sunny window\", \"blackboard\", \"back of the classroom\", \"teacher desk\", \"Camera\"]}",
+    "script": [
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Hello, I'm Richard Feynman, a physicist from Caltech. Today we will talk about relay switching networks and storage elements.",
+            "looking_at": "camera",
+            "walking_to": "blackboard"
+        },
+        {
+            "character": "Alice",
+            "voice_line": "Nice to meet you, Professor Feynman. I'm Alice, a math major from MIT. I'm intrigued by your topic.",
+            "looking_at": "Richard Feynman",
+            "walking_to": "classroom_location"
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "Greetings, my friends. I'm Alan Watts, a philosopher from Harvard. I'm curious about how relay switching networks affect human interaction with technology.",
+            "looking_at": "classroom_location",
+            "walking_to": "back of the classroom"
+        },
+        {
+            "character": "camera",
+            "voice_line": "Thank you for joining me today. Let's start with the basics. A relay switching network is a system that stores and retrieves information using relays, which are devices that can switch between different sources of data.",
+            "looking_at": "Richard Feynman",
+            "walking_to": "back of the classroom"
+        }
+    ]
+}

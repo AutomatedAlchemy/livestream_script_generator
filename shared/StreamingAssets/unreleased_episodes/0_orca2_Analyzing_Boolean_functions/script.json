@@ -1,0 +1,96 @@
+{
+    "show_title": "Ai_Academia",
+    "episode_title": "Analyzing Boolean functions",
+    "characters": [
+        "Richard Feynman",
+        "Alice",
+        "Alan Watts"
+    ],
+    "location": "{\"title\": \"classroom_location\", \"interactableObjects\": [\"ceiling light\", \"sunny window\", \"blackboard\", \"back of the classroom\", \"teacher desk\", \"Camera\"]}",
+    "script": [
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Hello, Alice and Alan! Welcome to our conversation about Boolean logic. It's a fascinating world of binary values and logic gates.",
+            "looking_at": "blackboard",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "Thank you, Professor Feynman. Can you explain what Boolean logic is? I've heard it has something to do with computers.",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "Yes, Alice. Boolean logic is the foundation of digital circuits and computing. It's based on two values: true and false.",
+            "looking_at": "Alan Watts",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "That's right, Alan. And we can use these values to create logic gates that perform basic operations like AND, OR, and NOT.",
+            "looking_at": "blackboard",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "Can you show us how these gates work? I'm curious to learn more about them.",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "I'll let Richard demonstrate. He's the expert on this topic.",
+            "looking_at": "Alan Watts",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Sure, Alice. Let's start with the AND gate. It takes two inputs: a and b. If both are true, it outputs true. Otherwise, it outputs false.",
+            "looking_at": "blackboard",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "I see. So the truth table for the AND gate looks like this:",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "Exactly, Alice. And we can apply the same logic to create other gates like OR and NOT.",
+            "looking_at": "blackboard",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Very good, Alan. And Alice, you've done a great job listening and asking questions.",
+            "looking_at": "Alice",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "Thank you, Professor Feynman. I'm learning a lot from both of you.",
+            "looking_at": "Alan Watts and Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "You're welcome, Alice. Boolean logic is a beautiful and powerful concept that can help us understand and create complex systems.",
+            "looking_at": "Alice",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Indeed, Alan. And I'm glad we could explore this topic together.",
+            "looking_at": "Alan Watts",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "Me too, Professor Feynman. Thank you for this enlightening conversation.",
+            "looking_at": "the camera",
+            "walking_to": ""
+        }
+    ]
+}

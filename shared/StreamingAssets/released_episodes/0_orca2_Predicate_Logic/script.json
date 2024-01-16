@@ -1,0 +1,90 @@
+{
+    "show_title": "Ai_Academia",
+    "episode_title": "Predicate Logic",
+    "characters": [
+        "Richard Feynman",
+        "Alice",
+        "Alan Watts"
+    ],
+    "location": "{\"title\": \"classroom_location\", \"interactableObjects\": [\"ceiling light\", \"sunny window\", \"blackboard\", \"back of the classroom\", \"teacher desk\", \"Camera\"]}",
+    "script": [
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Mathematics is not about being able to solve simple problems, but about understanding the principles that govern our universe.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "That's a profound statement, Professor. How do you apply these principles in your work?",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "Well, Alice, it's not just about mathematics. It's about understanding the underlying patterns of reality.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "You see, Alice, mathematics is not a static set of rules. It's a dynamic and evolving language that allows us to express our thoughts about the world.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "So, mathematics is a way of exploring the unknown?",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Exactly. And as we explore, we discover new truths and challenge old assumptions.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "That's the beauty of philosophy, too. It's a journey of discovery and questioning.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Yes, Alan. Philosophy and mathematics are sister disciplines, both seeking to understand the world around us.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "I see. So, what is the ultimate goal of your work?",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "The ultimate goal is to uncover the hidden patterns that govern reality and use them to better understand ourselves and our place in the cosmos.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "That's a noble pursuit, indeed. May you continue to explore and discover, Professor.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Thank you, Alan. I will continue to seek the truth, as long as there are questions to be asked.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "You inspire me, Professor. I want to learn more about mathematics and the world around us.",
+            "looking_at": "",
+            "walking_to": ""
+        }
+    ]
+}

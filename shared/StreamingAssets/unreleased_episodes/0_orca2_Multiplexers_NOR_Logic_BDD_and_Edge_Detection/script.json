@@ -1,0 +1,66 @@
+{
+    "show_title": "Ai_Academia",
+    "episode_title": "Multiplexers, NOR Logic, BDD, and Edge Detection",
+    "characters": [
+        "Richard Feynman",
+        "Alice",
+        "Alan Watts"
+    ],
+    "location": "{\"title\": \"classroom_location\", \"interactableObjects\": [\"ceiling light\", \"sunny window\", \"blackboard\", \"back of the classroom\", \"teacher desk\", \"Camera\"]}",
+    "script": [
+        {
+            "character": "Alan Watts",
+            "voice_line": "Logic is a powerful tool for understanding and shaping our reality, but it also requires intuition to grasp its complexities.",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "Can you explain how NOR Logic works? It's so different from Boolean Algebra.",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "NOR Logic is a type of logic gate that only passes a true signal to a true output. It's useful for managing multiple signals.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "This reminds me of how our minds process information. We need both logic and intuition to make sense of the world.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "I'm still confused about Decision Diagrams. How do they help with edge detection?",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Decision Diagrams are a way of representing logical functions using nodes and lines. You can use them to find the edges in an image by finding the values where the function changes.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "Fascinating! Logic and intuition work together to uncover patterns in the world.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "I'm starting to see how mathematics, logic, and intuition are interconnected.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "That's the spirit! Math is a journey of discovery, not just answers.",
+            "looking_at": "",
+            "walking_to": "back of the classroom"
+        }
+    ]
+}

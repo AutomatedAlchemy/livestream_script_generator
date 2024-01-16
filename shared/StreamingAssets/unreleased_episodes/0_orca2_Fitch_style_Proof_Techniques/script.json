@@ -1,0 +1,66 @@
+{
+    "show_title": "Ai_Academia",
+    "episode_title": "Fitch-style Proof Techniques",
+    "characters": [
+        "Richard Feynman",
+        "Alice",
+        "Alan Watts"
+    ],
+    "location": "{\"title\": \"classroom_location\", \"interactableObjects\": [\"ceiling light\", \"sunny window\", \"blackboard\", \"back of the classroom\", \"teacher desk\", \"Camera\"]}",
+    "script": [
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Hello, Alice and Alan. Today we're going to explore Fitch-style proof techniques. It's a powerful method for showing a logical argument is correct.",
+            "looking_at": "Alan Watts",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "Wow, that sounds interesting. How does it work?",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "Well, in essence, Fitch-style proof techniques involve writing out the steps of an argument and showing that each step follows logically from the previous one. Like this: If A, then B. And if C, then D.",
+            "looking_at": "",
+            "walking_to": "ceiling light"
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Right, Alan. So what we want to do is find a way to show that the conclusion, E, follows from A and C. For example: If 1 + 2 = 3, then 3 - 1 = 2. And if 4 x 5 = 20, then 20 / 4 = 5.",
+            "looking_at": "Alan Watts",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "That's clever, Richard. But how do we know that our steps are valid?",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "Alice, Fitch-style proof techniques involve checking each step for consistency and validity. You can use symbols like Q to represent the conclusion E. So our argument would look like this: If A x Q = B, then if C y Q = D. And we want to show that Q = Q.",
+            "looking_at": "",
+            "walking_to": "sunny window"
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "That's right, Alan. By showing that each step is logically valid and consistent, we can demonstrate the correctness of our argument. It's like a chain of reasoning that can be traced back to its origins.",
+            "looking_at": "Alan Watts",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "I see. So Fitch-style proof techniques are useful for showing the logical structure of arguments and proving their correctness.",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "Yes, Alice. And beyond mathematics, Fitch-style proof techniques have applications in philosophy and artificial intelligence as well.",
+            "looking_at": "",
+            "walking_to": "back of the classroom"
+        }
+    ]
+}

@@ -1,0 +1,72 @@
+{
+    "show_title": "Ai_Academia",
+    "episode_title": "Practical Exercises",
+    "characters": [
+        "Richard Feynman",
+        "Alice",
+        "Alan Watts"
+    ],
+    "location": "{\"title\": \"classroom_location\", \"interactableObjects\": [\"ceiling light\", \"sunny window\", \"blackboard\", \"back of the classroom\", \"teacher desk\", \"Camera\"]}",
+    "script": [
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Hello, I'm Richard Feynman, a physicist and teacher. Today we will explore an interesting topic from physics or mathematics that has practical applications in everyday life.",
+            "looking_at": "camera",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "Hi, Professor Feynman. I'm Alice, a student in your class. I'm really curious about what we're going to learn today.",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "Greetings, everyone. I'm Alan Watts, a philosopher and friend of Richard. I'm here to share some insights on the topic from a philosophical perspective.",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Camera",
+            "voice_line": "Welcome to Ai_Academia, a show that explores the intersection of science, philosophy, and art. Today's episode is called 'Practical Exercises'. Let's dive into the topic with Richard, Alice, and Alan.",
+            "looking_at": "Richard Feynman",
+            "walking_to": "sunny window"
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Our topic today is quantum mechanics. It's a branch of physics that deals with the behavior of matter and energy at the atomic and subatomic level.",
+            "looking_at": "Camera",
+            "walking_to": "blackboard"
+        },
+        {
+            "character": "Alice",
+            "voice_line": "Quantum mechanics? That sounds very complicated. How does it relate to everyday life, Professor?",
+            "looking_at": "Richard Feynman",
+            "walking_to": "blackboard"
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "Alice, quantum mechanics is actually very simple once you understand the basic principles. It's about how things can exist in multiple states at the same time until we observe them.",
+            "looking_at": "Richard Feynman",
+            "walking_to": "blackboard"
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "That's right, Alan. And one of the most fascinating aspects of quantum mechanics is that it shows us that reality is not constant or fixed.",
+            "looking_at": "Alan Watts",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "Really? How can that be?",
+            "looking_at": "Richard Feynman",
+            "walking_to": "blackboard"
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Let's use an example to illustrate. Imagine you have a coin that can be either heads or tails. According to quantum mechanics, the coin can exist in both states at the same time until we look at it.",
+            "looking_at": "",
+            "walking_to": false
+        }
+    ]
+}

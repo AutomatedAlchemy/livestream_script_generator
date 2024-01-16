@@ -1,0 +1,78 @@
+{
+    "show_title": "Ai_Academia",
+    "episode_title": "Development of Flipflops and Flank Detection",
+    "characters": [
+        "Richard Feynman",
+        "Alice",
+        "Alan Watts"
+    ],
+    "location": "{\"title\": \"classroom_location\", \"interactableObjects\": [\"ceiling light\", \"sunny window\", \"blackboard\", \"back of the classroom\", \"teacher desk\", \"Camera\"]}",
+    "script": [
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Alice, do you know what a flipflop is? It's a basic logic gate that takes binary signals and processes them using Boolean algebra.",
+            "looking_at": "ceiling light",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "Oh, I've heard of flipflops but I don't really understand how they work. Can you explain?",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "Of course, Alice. A flipflop has two inputs, called X and Y, and two outputs, called Z and Not_Z. For example, if X = 0 and Y = 1, the output will be Z = 1 and Not_Z = 0.",
+            "looking_at": "sunny window",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "That's correct, Alan. Flipflops are useful for performing basic operations on binary signals. They are similar to the switches in your computer that control the flow of data.",
+            "looking_at": "blackboard",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "Fascinating! But what about flank detection? How does it relate to flipflops?",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "Flank detection is a technique used in signal processing and speech recognition to separate speech signals from background noise. It works by identifying the edges or flanks of the signal, which are usually more prominent than the noise.",
+            "looking_at": "ceiling light",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "That's right, Alan. Flank detection is important for understanding speech and music in noisy environments. It's a way of extracting useful information from the signal.",
+            "looking_at": "sunny window",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "Wow, I'm learning so much today! Thank you for explaining these concepts to me.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "You're very welcome, Alice. It's always a pleasure to share knowledge with curious minds.",
+            "looking_at": "blackboard",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "And remember, Alice, these concepts are not just abstract theories. They have real-world applications that can improve our lives.",
+            "looking_at": "teacher desk",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Indeed, Alan. Flipflops and flank detection are examples of how mathematics can help us understand and manipulate the world around us.",
+            "looking_at": "Camera",
+            "walking_to": "back of the classroom"
+        }
+    ]
+}

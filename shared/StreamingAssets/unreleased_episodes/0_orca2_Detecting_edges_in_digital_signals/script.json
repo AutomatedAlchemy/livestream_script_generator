@@ -1,0 +1,60 @@
+{
+    "show_title": "Ai_Academia",
+    "episode_title": "Detecting edges in digital signals",
+    "characters": [
+        "Richard Feynman",
+        "Alice",
+        "Alan Watts"
+    ],
+    "location": "{\"title\": \"classroom_location\", \"interactableObjects\": [\"ceiling light\", \"sunny window\", \"blackboard\", \"back of the classroom\", \"teacher desk\", \"Camera\"]}",
+    "script": [
+        {
+            "character": "Alan Watts",
+            "voice_line": "The nature of reality is a fascinating topic, don't you think? Digital signals are just one aspect of it.",
+            "looking_at": "Richard Feynman and Alice",
+            "walking_to": false
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "That's right, Alan. Digital signals are fundamental in our modern world. But detecting edges is not always easy.",
+            "looking_at": "Alice",
+            "walking_to": false
+        },
+        {
+            "character": "Alice",
+            "voice_line": "Why is that? How can we improve the accuracy of edge detection?",
+            "looking_at": "Richard Feynman and Alan Watts",
+            "walking_to": false
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "Well, Alice, it's not just about the signals themselves. It's also about the context and the interpretation of the data.",
+            "looking_at": "Richard Feynman",
+            "walking_to": false
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "That's a good point, Alan. We need to consider the context and the possible sources of errors.",
+            "looking_at": "Alice",
+            "walking_to": false
+        },
+        {
+            "character": "Alice",
+            "voice_line": "So, how do we detect edges accurately? What methods can we use?",
+            "looking_at": "Richard Feynman and Alan Watts",
+            "walking_to": false
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "In philosophy, we often ask questions like 'what is reality?' or 'how do we know what we know?'. In this case, we can ask, 'what makes a good edge detector?' or 'how do we measure the quality of an edge?'.",
+            "looking_at": "Richard Feynman",
+            "walking_to": false
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "That's a deep and thought-provoking question, Alan. We can use different metrics and algorithms to evaluate the performance of edge detectors.",
+            "looking_at": "Alice",
+            "walking_to": false
+        }
+    ]
+}

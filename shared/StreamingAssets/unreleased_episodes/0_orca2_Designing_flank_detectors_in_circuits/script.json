@@ -1,0 +1,30 @@
+{
+    "show_title": "Ai_Academia",
+    "episode_title": "Designing flank detectors in circuits",
+    "characters": [
+        "Richard Feynman",
+        "Alice",
+        "Alan Watts"
+    ],
+    "location": "{\"title\": \"classroom_location\", \"interactableObjects\": [\"ceiling light\", \"sunny window\", \"blackboard\", \"back of the classroom\", \"teacher desk\", \"Camera\"]}",
+    "script": [
+        {
+            "character": "Alice",
+            "voice_line": "I can't believe we just did that! Designing a flank detector in circuits is so cool!",
+            "looking_at": "Richard Feynman",
+            "walking_to": "Alan Watts"
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "That was amazing, team! You guys really nailed it. Flank detectors are essential in circuits, and you just created one from scratch.",
+            "looking_at": "Alice",
+            "walking_to": "Alan Watts"
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "Wonderful work, everyone! You've shown great skill and curiosity in designing this flank detector. It's a testament to the power of human ingenuity.",
+            "looking_at": "Richard Feynman",
+            "walking_to": "Alice"
+        }
+    ]
+}

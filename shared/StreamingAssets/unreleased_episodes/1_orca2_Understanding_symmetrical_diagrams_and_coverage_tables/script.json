@@ -1,0 +1,60 @@
+{
+    "show_title": "Ai_Academia",
+    "episode_title": "Understanding symmetrical diagrams and coverage tables",
+    "characters": [
+        "Richard Feynman",
+        "Alice",
+        "Alan Watts"
+    ],
+    "location": "{\"title\": \"classroom_location\", \"interactableObjects\": [\"ceiling light\", \"sunny window\", \"blackboard\", \"back of the classroom\", \"teacher desk\", \"Camera\"]}",
+    "script": [
+        {
+            "character": "Alice",
+            "voice_line": "I love how we broke down the problem into smaller parts and used logic to find the solution.",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Great job, Alice! This is how we solve complex problems by understanding the patterns and principles behind them.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "Coverage tables are fascinating. They help us see the relationships between different aspects of a system.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Exactly, Alan! Symmetrical diagrams and coverage tables are essential tools for understanding and analyzing various phenomena.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "I can't believe how much we learned in just one session. This method of problem-solving is so effective and enjoyable.",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "I'm glad you two are finding this valuable and fun. That's the whole point of Ai_Academia: to explore, learn, and have a good time.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "We should continue to apply this approach to other topics and see where it takes us.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Absolutely, Alan! There's so much to discover in the world of mathematics and beyond. Let's keep pushing our limits and curiosity.",
+            "looking_at": "",
+            "walking_to": ""
+        }
+    ]
+}

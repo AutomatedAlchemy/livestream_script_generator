@@ -1,0 +1,96 @@
+{
+    "show_title": "Ai_Academia",
+    "episode_title": "Advanced Predicate Logic",
+    "characters": [
+        "Richard Feynman",
+        "Alice",
+        "Alan Watts"
+    ],
+    "location": "{\"title\": \"classroom_location\", \"interactableObjects\": [\"ceiling light\", \"sunny window\", \"blackboard\", \"back of the classroom\", \"teacher desk\", \"Camera\"]}",
+    "script": [
+        {
+            "character": "Alice",
+            "voice_line": "Wow, this is so interesting! I never knew that logic could be so powerful and expressive.",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Logic is the language of science, Alice. It allows us to make precise statements and draw conclusions from them.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "And yet, logic alone cannot capture the beauty and mystery of existence. It's important to balance reason with intuition and imagination.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "But how can we use logic to answer questions about the nature of reality? Isn't it a bit contradictory?",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Well, logic is not meant to be a rigid set of rules. It's a tool that helps us structure our thoughts and arguments. We can use it to explore different possibilities and test them against evidence.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "That's right, Alice. Logic allows us to question and refine our understanding of the world, but it can never replace the creativity and wonder that drives our curiosity.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "I see. So logic is like a bridge between reason and mystery, connecting us to the unknown.",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Exactly, Alice. And now that we understand the basics of predicate logic, let's apply it to a real-world problem.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "A wonderful challenge! Let's see how far we can push the power of logic.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "Okay, let's do it! Show me the problem, Camera!",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Alright, Alice. Here's the problem: (P -> Q) -> (~Q -> ~P). Can you find a logical solution?",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Camera",
+            "voice_line": "Let's see... P is the proposition 'the cat is on the mat', Q is the proposition 'the dog is on the mat', and ~P is the negation of 'the cat is not on the mat'. So, we have: (P -> Q) -> (~Q -> ~P).",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "That's correct, Camera! You've applied predicate logic to a real-world scenario and found a logical solution. Well done!",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Bravo, Camera! You've demonstrated an excellent understanding of predicate logic and its applications.",
+            "looking_at": "",
+            "walking_to": ""
+        }
+    ]
+}

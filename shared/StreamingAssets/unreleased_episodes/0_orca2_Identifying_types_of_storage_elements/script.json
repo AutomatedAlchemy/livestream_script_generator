@@ -1,0 +1,90 @@
+{
+    "show_title": "Ai_Academia",
+    "episode_title": "Identifying types of storage elements",
+    "characters": [
+        "Richard Feynman",
+        "Alice",
+        "Alan Watts"
+    ],
+    "location": "{\"title\": \"classroom_location\", \"interactableObjects\": [\"ceiling light\", \"sunny window\", \"blackboard\", \"back of the classroom\", \"teacher desk\", \"Camera\"]}",
+    "script": [
+        {
+            "character": "Alan Watts",
+            "voice_line": "What are these storage elements you're talking about, Richard?",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "They are essential parts of computers that store information temporarily or permanently. Let's start with the one closest to the computer, the RAM.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "So, what can you do with the RAM?",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "You can store and access data quickly, because it's directly connected to the computer. However, it loses information when the power is off.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "What about the ROM?",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "The ROM stores information permanently, like the basic instructions of your computer. You can't change it, but you can access it anytime.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "And the Hard disk?",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "The hard disk is like a big storage device that can hold lots of information. It's slower than RAM, but it has more capacity.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "Interesting. How do these storage elements affect our understanding of reality?",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "That's a deep philosophical question, Alan. I think they reflect our capacity to store and process information, which shapes our perception of reality.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "But what if the information is incomplete or inaccurate?",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "That's why it's crucial to question and verify information, Alice. Reality is not static or fixed; it's constantly changing through our observations and interpretations.",
+            "looking_at": "",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "That sounds like a paradox, Richard. A storage element that holds information about itself.",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        }
+    ]
+}
