@@ -19,5 +19,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r rest_api_requirements.txt
 
-    - name: Run Python application
-      run: python restApi.py
+    - name: Run Python application in background
+      run: |
+        pkill -f restApi.py || true  # Kill any existing instance
+        nohup python restApi.py &    # Run new instance in background
