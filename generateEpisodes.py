@@ -37,28 +37,42 @@ llm_logging: Dict[str, List[float]] = {}
 current_llm_i: int = -1
 current_episode_i: int = 0
 episode_titles_to_choose_from = [
-    "Boolean Algebra and CMOS Networks",
-    "Designing CMOS switch networks",
-    "Understanding pull-up and pull-down networks",
-    "Analyzing Boolean functions",
-    "Minimization of Switching Functions",
-    "Applying Nelson/Petrick procedure for cost-minimal forms",
-    "Understanding symmetrical diagrams and coverage tables",
-    "Binary Decision Diagrams (BDD) and Flipflops",
-    "Transforming functions for realization with specific gates",
-    "Functionality and design of flip-flops, including RS-Latch and D-Latch",
-    "Development of Flipflops and Flank Detection",
-    "Designing flank detectors in circuits",
-    "Multiplexers, NOR Logic, BDD, and Edge Detection",
-    "Designing and analyzing circuits using multiplexers and NOR gates",
-    "Detecting edges in digital signals",
-    "Relay Switching Networks and Storage Elements",
-    "Designing relay-based switching networks",
-    "Identifying types of storage elements",
-    "Automata and State Machines",
-    "Completing state transition tables for flip-flops"
-    "The cult of done",
-    "The cult of done manifesto",
+    "An Overview of Switching Functions and Their Minimization - Basics of Switching Functions in Logic Design",
+    "An Overview of Switching Functions and Their Minimization - Techniques for Minimizing Switching Functions",
+    "An Overview of Switching Functions and Their Minimization - Real-world Applications and Case Studies",
+    "Fundamentals of Binary Decision Diagrams (BDD) - Introduction to BDDs in Computer Science",
+    "Fundamentals of Binary Decision Diagrams (BDD) - Constructing and Analyzing BDDs",
+    "Fundamentals of Binary Decision Diagrams (BDD) - Practical Uses of BDDs in Computing",
+    "Exploring the Basics of Flip-Flops: RS-Latch and D-Latch - Understanding the RS-Latch Mechanism",
+    "Exploring the Basics of Flip-Flops: RS-Latch and D-Latch - Principles of D-Latch Operation",
+    "Exploring the Basics of Flip-Flops: RS-Latch and D-Latch - Comparing RS-Latch and D-Latch in Circuit Design",
+    "Understanding Circuit Design with Multiplexers and NOR Logic - Introduction to Multiplexers in Digital Circuits",
+    "Understanding Circuit Design with Multiplexers and NOR Logic - The Role of NOR Logic in Circuit Design",
+    "Understanding Circuit Design with Multiplexers and NOR Logic - Integrating Multiplexers and NOR Logic in Practical Applications",
+    "Designing and Analyzing CMOS Switch Networks: A Primer - Basic Principles of CMOS Technology",
+    "Designing and Analyzing CMOS Switch Networks: A Primer - Design Strategies for CMOS Switch Networks",
+    "Designing and Analyzing CMOS Switch Networks: A Primer - Analysis and Optimization of CMOS Circuits",
+    "Relay Network Implementations in Modern Computing - Fundamentals of Relay Networks",
+    "Relay Network Implementations in Modern Computing - Implementing Relay Networks in Computing Solutions",
+    "Relay Network Implementations in Modern Computing - Case Studies of Relay Networks in Action",
+    "The Art of Edge Detection in Digital Circuits - Basics of Edge Detection Techniques",
+    "The Art of Edge Detection in Digital Circuits - Implementing Edge Detection in Digital Systems",
+    "The Art of Edge Detection in Digital Circuits - Analyzing Performance of Edge Detection Circuits",
+    "Introduction to State Machines and Automata in Computing - Understanding the Basics of State Machines",
+    "Introduction to State Machines and Automata in Computing - Automata Theory in Computer Science",
+    "Introduction to State Machines and Automata in Computing - Practical Applications of State Machines and Automata",
+    "Advanced Boolean Function Analysis for Beginners - Core Concepts of Boolean Functions",
+    "Advanced Boolean Function Analysis for Beginners - Techniques for Analyzing Boolean Functions",
+    "Advanced Boolean Function Analysis for Beginners - Applying Boolean Analysis in Computing Problems",
+    "Symmetrical Diagrams and Coverage Tables: Basics for Computer Scientists - Introduction to Symmetrical Diagrams",
+    "Symmetrical Diagrams and Coverage Tables: Basics for Computer Scientists - Understanding and Using Coverage Tables",
+    "Symmetrical Diagrams and Coverage Tables: Basics for Computer Scientists - Practical Uses in Computer Science Applications",
+    "Active-LOW RS-Latch: Understanding and Application - Principles of Active-LOW RS-Latch",
+    "Active-LOW RS-Latch: Understanding and Application - Designing and Implementing Active-LOW RS-Latches",
+    "Active-LOW RS-Latch: Understanding and Application - Case Studies and Real-World Examples",
+    "Fundamentals of Flank Detection in Digital Systems - Introduction to Flank Detection",
+    "Fundamentals of Flank Detection in Digital Systems - Techniques for Detecting Flanks in Digital Signals",
+    "Fundamentals of Flank Detection in Digital Systems - Applications and Importance in Modern Systems"
 ]
 llms = [
     # "codellama:7b",
@@ -185,11 +199,12 @@ def generate_episodes():
             
             # move Episode from WIP to ready
             episode_version = 0
-            while os.path.exists(f"./shared/StreamingAssets/unreleased_episodes/{episode_version}_{episode_identifier}") or os.path.exists(f"./shared/StreamingAssets/released_episodes/{episode_version}_{episode_identifier}"):
+            while os.path.exists(f"./shared/StreamingAssets/unreleased_episodes/{episode_version}_{episode_identifier}") or os.path.exists(f"./shared/StreamingAssets/prioritized_episodes/{episode_version}_{episode_identifier}") or os.path.exists(f"./shared/StreamingAssets/released_episodes/{episode_version}_{episode_identifier}"):
                 episode_version += 1
-            shutil.copytree(WIP_path, f"./shared/StreamingAssets/unreleased_episodes/{episode_version}_{episode_identifier}")
+            generated_episode_folder = f"./shared/StreamingAssets/prioritized_episodes/{episode_version}_{episode_identifier}"
+            shutil.copytree(WIP_path, generated_episode_folder)
             print(WIP_path)
-            print(f"./shared/StreamingAssets/unreleased_episodes/{episode_version}_{episode_identifier}")
+            print(generated_episode_folder)
             shutil.rmtree(WIP_path)
 
             # logging llm info
@@ -206,10 +221,6 @@ def generate_episodes():
                     f"\033[38;5;255mAverage Time for {llm_name} to produce script: {average_time:.0f} seconds\033[0m"
                 )
                 
-            if not args.prod:
-                shutil.copy("C:/Users/Steffen/ai_livestream_URP/Assets/StreamingAssets/supported_scenes.json", "./shared/StreamingAssets/supported_scenes.json")
-                shutil.copy(f"./shared/StreamingAssets/unreleased_episodes/{episode_version}_{episode_identifier}", f"C:/Users/Steffen/ai_livestream_URP/Assets/StreamingAssetss/unreleased_episodes/{episode_version}_{episode_identifier}")
-
         except Exception as e:
             print(f"An error occurred: {e}")
             print("\033[91mAn error occurred:", e, "\033[0m")
@@ -219,18 +230,12 @@ def generate_episodes():
 
 def set_supported_scenes():
     global supported_scenes
-    if not args.prod:
-        shutil.copy("C:/Users/Steffen/ai_livestream_URP/Assets/StreamingAssets/supported_scenes.json", "./shared/StreamingAssets/supported_scenes.json")
-
-    file_path = "./shared/StreamingAssets/supported_scenes.json"
-
     # Reading the JSON data from the specified file
-    with open(file_path, 'r') as file:
-        file_data = json.load(file)
+    with open("./shared/supported_scenes.json", 'r') as file:
+        file_data = file.read()
 
     print(file_data)
-    supported_scenes = SupportedScenes.from_json(json.dumps(file_data))
-
+    supported_scenes = SupportedScenes.from_json(file_data)
     print("Supported scenes set successfully!")
     
 generate_episodes()

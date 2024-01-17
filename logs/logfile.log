@@ -117,3 +117,658 @@ Released episode: 0_orca2_Predicate_Logic
 [38;5;255mAverage Time for orca2 to produce script: 160 seconds[0m
 [38;5;255mAverage Time for orca2 to produce script: 158 seconds[0m
 [38;5;255mAverage Time for orca2 to produce script: 159 seconds[0m
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 29, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 35, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 35, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 35, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 35, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 35, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable
+Error in choose_episode_path: [WinError 183] Cannot create a file when that file already exists: './shared/StreamingAssets/unreleased_episodes/0_orca2_Advanced_Logic_Topics_Optional_'
+Error in choose_episode_path: [WinError 183] Cannot create a file when that file already exists: './shared/StreamingAssets/unreleased_episodes/0_orca2_Advanced_Logic_Topics_Optional_'
+Error in choose_episode_path: [WinError 183] Cannot create a file when that file already exists: './shared/StreamingAssets/unreleased_episodes/0_orca2_Advanced_Logic_Topics_Optional_'
+Error in choose_episode_path: [WinError 183] Cannot create a file when that file already exists: './shared/StreamingAssets/unreleased_episodes/0_orca2_Advanced_Logic_Topics_Optional_'
+Error in choose_episode_path: [WinError 183] Cannot create a file when that file already exists: './shared/StreamingAssets/unreleased_episodes/0_orca2_Advanced_Logic_Topics_Optional_'
+Error in choose_episode_path: [WinError 183] Cannot create a file when that file already exists: './shared/StreamingAssets/unreleased_episodes/0_orca2_Advanced_Logic_Topics_Optional_'
+Error in choose_episode_path: module 'os' has no attribute 'exists'
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 35, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 35, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 35, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 35, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 35, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 35, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 35, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 35, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 35, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 35, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 35, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 35, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 35, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 35, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 35, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 35, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 35, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 35, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 35, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 35, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable
+Exception on /setSupportedScenes [PUT]
+Traceback (most recent call last):
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steffen\OneDrive\Projekte\livestream_script_generator\restApi.py", line 35, in set_supported_scenes
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
+  File "C:\Users\Steffen\anaconda3\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Steffen\anaconda3\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type SupportedScenes is not JSON serializable

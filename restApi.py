@@ -10,9 +10,17 @@ from flask import Flask, jsonify, request, send_file
 from classes.SupportedScenes import \
     SupportedScenes  # Ensure this import path is correct
 
+
+def list_full_paths(directory):
+    """ Returns the full paths of files in the given directory. """
+    return [os.path.join(directory, file) for file in os.listdir(directory)]
+
+
 logging.basicConfig(level=logging.ERROR, format="%(asctime)s %(levelname)s %(name)s %(message)s")
 logger = logging.getLogger(__name__)
 
+if (not os.path.exists("./logs/")):
+    os.mkdir("./logs/")
 # Setup file handler
 file_handler = RotatingFileHandler("./logs/logfile.log", maxBytes=1024 * 1024 * 100, backupCount=20)
 
@@ -26,31 +34,39 @@ def set_supported_scenes():
     global supported_scenes
     data = request.json
     supported_scenes = SupportedScenes.from_json(json.dumps(data))
+    json.dump(supported_scenes, "./shared/supported_scenes.json")
     return "Supported scenes set successfully!"
+
 
 @app.route("/chooseEpisodePath", methods=["GET"])
 def choose_episode_path():
     try:
-        boosted_episodes = []  # Placeholder for boosted episodes
-        unreleased_episodes = boosted_episodes + os.listdir("./shared/StreamingAssets/unreleased_episodes/")
-        released_episodes = os.listdir("./shared/StreamingAssets/released_episodes/")
+        boosted_episodes_directory = "./shared/StreamingAssets/prioritized_episodes/"
+        unreleased_episodes_directory = "./shared/StreamingAssets/unreleased_episodes/"
+        released_episodes_directory = "./shared/StreamingAssets/released_episodes/"
+
+        boosted_episodes = list_full_paths(boosted_episodes_directory)  # Full paths for boosted episodes
+        unreleased_episodes = boosted_episodes + list_full_paths(unreleased_episodes_directory)  # Full paths for unreleased episodes
+        released_episodes = list_full_paths(released_episodes_directory)  # Full paths for released episodes
 
         if not unreleased_episodes:
             # Fallback to replaying old episodes
             episode_to_release = random.choice(released_episodes)
-            shutil.copytree(f"./shared/StreamingAssets/released_episodes/{episode_to_release}",
-                            f"./shared/StreamingAssets/unreleased_episodes/{episode_to_release}")
-            shutil.rmtree(f"./shared/StreamingAssets/released_episodes/{episode_to_release}")
-
-        # Selecting an episode from the top 3 of the list
-        episode_to_release = random.choice(unreleased_episodes[:3])
-        unity_episode_path = os.path.join("./shared/StreamingAssets/unreleased_episodes/", episode_to_release)
-        app.logger.info(f"Selected episode for release: {unity_episode_path}")
-        return jsonify({"episode_path": unity_episode_path})
-
+        else:
+            # Selecting an episode from the top 3 of the list
+            episode_to_release = random.choice(unreleased_episodes[:3])
+        released_path = os.path.join(released_episodes_directory, os.path.basename(episode_to_release))
+        if (not os.path.exists(released_path)):
+            shutil.copytree(episode_to_release, released_path)
+        if (not "released_episodes" in episode_to_release):
+            shutil.rmtree(episode_to_release)
+        app.logger.info(f"Releasing episode: {os.path.basename(released_path)}")
+        return jsonify({"episode_path": released_path})
+    
     except Exception as e:
-        logger.exception(f"An error occurred: {e}")
-        return jsonify({"error": str(e)}), 500
+        app.logger.error(f"Error in choose_episode_path: {e}")
+        return jsonify({"error": str(e)})
+
 
 @app.route("/getEpisode", methods=["GET"])
 def get_episode():

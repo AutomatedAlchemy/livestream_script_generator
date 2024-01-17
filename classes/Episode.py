@@ -123,15 +123,19 @@ class Episode:
         ) = self.get_script_and_json_few_shot_chat()
 
         if (not self.outline):
+            # episode_script_few_shot_chat.add_message(
+            #     Role.USER,
+            #     f'Hi, please come up with an outline for a short episode of "{self.show_title}", this episodes title will be "{self.episode_title}", staged at the location "{self.location.title}" and populated by the characters "{self.characters}". The location contains {self.location.interactableObjects} with which the characters can interact with.',
+            # )
             episode_script_few_shot_chat.add_message(
                 Role.USER,
-                f'Hi, please come up with an outline for a short episode of "{self.show_title}", this episodes title will be "{self.episode_title}", staged at the location "{self.location.title}" and populated by the characters "{self.characters}". The location contains {self.location.interactableObjects} with which the characters can interact with.',
+                f'Hi, please come up with educational structured episode for "{self.show_title}", this episodes title will be "{self.episode_title}", staged at the location "{self.location.title}" and populated by the characters "{self.characters}". The location contains {self.location.interactableObjects} with which the characters can interact with.',
             )
 
             self.outline = self.session.generate_completion(
                 episode_script_few_shot_chat,
                 self.llm,
-                f'Sure! In this short episode of "{self.show_title}" appropriately named "{self.episode_title}" staged by the characters "{self.characters}" in the location "{self.location.title}"',
+                f'Sure! Todays episode of "{self.show_title}" appropriately named "{self.episode_title}" staged by the characters "{self.characters}" in the location "{self.location.title}" will focus on being educational and engaging. In this episode',
             )
             print(self.outline)
             script_to_json_few_shot_chat.add_message(Role.USER, self.outline)
