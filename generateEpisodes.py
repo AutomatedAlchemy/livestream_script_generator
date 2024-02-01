@@ -1,17 +1,34 @@
 import argparse
+import builtins
 import json
 import os
+import random
 import re
 import shutil
 import time
+import traceback
+from random import shuffle
 from typing import Dict, List
 
 import torch
+from line_profiler import LineProfiler, profile
 from TTS.api import TTS
 
+from classes.Episode import Episode
 from classes.Livestream import Livestream
 from classes.SupportedScenes import SupportedScenes
 from interface.cls_ollama_client import OllamaClient
+
+# Save the original print function
+original_print = builtins.print
+
+# Define a new print function that always flushes
+def print(*args, **kwargs):
+    kwargs.setdefault('flush', True)
+    return original_print(*args, **kwargs)
+
+# Override the built-in print with your custom print
+builtins.print = print
 
 if not os.path.exists("./logs"):
     os.mkdir("./logs")
@@ -22,7 +39,7 @@ parser = argparse.ArgumentParser(
 parser.add_argument(
     "-p", "--prod", action="store_true", help="Run in production environment"
 )
-
+  
 args = parser.parse_args()
 
 streaming_assets_path: str
@@ -37,47 +54,80 @@ llm_logging: Dict[str, List[float]] = {}
 current_llm_i: int = -1
 current_episode_i: int = 0
 episode_titles_to_choose_from = [
-    "An Overview of Switching Functions and Their Minimization - Basics of Switching Functions in Logic Design",
-    "An Overview of Switching Functions and Their Minimization - Techniques for Minimizing Switching Functions",
-    "An Overview of Switching Functions and Their Minimization - Real-world Applications and Case Studies",
-    "Fundamentals of Binary Decision Diagrams (BDD) - Introduction to BDDs in Computer Science",
-    "Fundamentals of Binary Decision Diagrams (BDD) - Constructing and Analyzing BDDs",
-    "Fundamentals of Binary Decision Diagrams (BDD) - Practical Uses of BDDs in Computing",
-    "Exploring the Basics of Flip-Flops: RS-Latch and D-Latch - Understanding the RS-Latch Mechanism",
-    "Exploring the Basics of Flip-Flops: RS-Latch and D-Latch - Principles of D-Latch Operation",
-    "Exploring the Basics of Flip-Flops: RS-Latch and D-Latch - Comparing RS-Latch and D-Latch in Circuit Design",
-    "Understanding Circuit Design with Multiplexers and NOR Logic - Introduction to Multiplexers in Digital Circuits",
-    "Understanding Circuit Design with Multiplexers and NOR Logic - The Role of NOR Logic in Circuit Design",
-    "Understanding Circuit Design with Multiplexers and NOR Logic - Integrating Multiplexers and NOR Logic in Practical Applications",
-    "Designing and Analyzing CMOS Switch Networks: A Primer - Basic Principles of CMOS Technology",
-    "Designing and Analyzing CMOS Switch Networks: A Primer - Design Strategies for CMOS Switch Networks",
-    "Designing and Analyzing CMOS Switch Networks: A Primer - Analysis and Optimization of CMOS Circuits",
-    "Relay Network Implementations in Modern Computing - Fundamentals of Relay Networks",
-    "Relay Network Implementations in Modern Computing - Implementing Relay Networks in Computing Solutions",
-    "Relay Network Implementations in Modern Computing - Case Studies of Relay Networks in Action",
-    "The Art of Edge Detection in Digital Circuits - Basics of Edge Detection Techniques",
-    "The Art of Edge Detection in Digital Circuits - Implementing Edge Detection in Digital Systems",
-    "The Art of Edge Detection in Digital Circuits - Analyzing Performance of Edge Detection Circuits",
-    "Introduction to State Machines and Automata in Computing - Understanding the Basics of State Machines",
-    "Introduction to State Machines and Automata in Computing - Automata Theory in Computer Science",
-    "Introduction to State Machines and Automata in Computing - Practical Applications of State Machines and Automata",
-    "Advanced Boolean Function Analysis for Beginners - Core Concepts of Boolean Functions",
-    "Advanced Boolean Function Analysis for Beginners - Techniques for Analyzing Boolean Functions",
-    "Advanced Boolean Function Analysis for Beginners - Applying Boolean Analysis in Computing Problems",
-    "Symmetrical Diagrams and Coverage Tables: Basics for Computer Scientists - Introduction to Symmetrical Diagrams",
-    "Symmetrical Diagrams and Coverage Tables: Basics for Computer Scientists - Understanding and Using Coverage Tables",
-    "Symmetrical Diagrams and Coverage Tables: Basics for Computer Scientists - Practical Uses in Computer Science Applications",
-    "Active-LOW RS-Latch: Understanding and Application - Principles of Active-LOW RS-Latch",
-    "Active-LOW RS-Latch: Understanding and Application - Designing and Implementing Active-LOW RS-Latches",
-    "Active-LOW RS-Latch: Understanding and Application - Case Studies and Real-World Examples",
-    "Fundamentals of Flank Detection in Digital Systems - Introduction to Flank Detection",
-    "Fundamentals of Flank Detection in Digital Systems - Techniques for Detecting Flanks in Digital Signals",
-    "Fundamentals of Flank Detection in Digital Systems - Applications and Importance in Modern Systems"
+    "Linear Mappings", 
+    "Inverses of Matrices", 
+    "Generalization of Numbers to Matrices", 
+    "Transposing and Inverting Matrices, Determinant of the Transposed Matrix", 
+    "Powers and Inverses of Matrices", 
+    "Solving Linear Systems", 
+    "Formula for Inverse of a 2x2 Matrix", 
+    "Applications of Matrices", 
+    "Sum Formula for Geometric Sequences Applied to Matrices"
+    "RasperryPi Pico",
+    "Mandelbrot Set",
+    "Julia Sets",
+    "Fractals",
+    "Mathematical Functions",
+    "Chaos Theory and Attractors",
+    "Cellular Automata",
+    "Fourier Series Visualization",
+    "Mathematical Spirals",
+    "Waveform Patterns",
+    "Pendulum Motion",
+    "Lissajous Curves",
+    "Random Walks",
+    "Turing Patterns",
+    "The Cult of Done",
+    "The Cult of Done Manifesto",
+    "Large Language Models",
+    "ChatGpt",
+    "GPT-5",
+    "OpenAI",
+    "The Future After the Singularity of AI",
+    "DNA Sequencing Technologies",
+    "Stem Cell Research",
+    "Neuroplasticity",
+    "Evolutionary Psychology",
+    "Social Network Analysis",
+    "Cultural Anthropology",
+    "Behavioral Economics",
+    "Game Theory in Economics",
+    "Virtual Reality Gaming",
+    "Esports and Competitive Gaming",
+    "History of Video Games",
+    "Artificial Intelligence in Gaming",
+    "Psychological Impact of Social Media",
+    "Renewable Energy Sources",
+    "Climate Change and its Effects",
+    "Space Exploration and Colonization",
+    "Quantum Computing",
+    "Blockchain and Cryptocurrency",
+    "Cybersecurity Trends and Challenges",
+    "Home Gardening Tips",
+    "Easy Healthy Recipes",
+    "Budget Travel Destinations",
+    "DIY Home Decor Ideas",
+    "Effective Workout Routines for Beginners",
+    "Mindfulness and Meditation Practices",
+    "Time Management Strategies",
+    "Book Recommendations",
+    "Eco-Friendly Living Practices",
+    "Quick and Easy Meal Prepping",
+    "Home Office Organization",
+    "Stress Relief Techniques",
+    "Indoor Plant Care",
+    "Upcycling Projects",
+    "Coffee Brewing Techniques",
+    "Crafting and Scrapbooking Ideas",
+    "Board Games and Family Entertainment",
+    "Learning a New Language",
+    "Urban Gardening",
 ]
+# https://huggingface.co/TheBloke/NeuralBeagle14-7B-GGUF
+# https://huggingface.co/senseable/WestLake-7B-v2
 llms = [
-    # "codellama:7b",
-    # "deepseek-coder:6.7b",
-    # "wizardcoder:7b",
+    # "dolphin-mixtral",
+    "samantha-mistral",
     "zephyr",
     "starling-lm",
     "neural-chat",
@@ -85,10 +135,13 @@ llms = [
     "openhermes",
     "orca2",
 ]
+shuffle(episode_titles_to_choose_from)
+shuffle(llms)
 
-for llm_to_download in llms:
-    session = OllamaClient()
+session = OllamaClient()
+for llm_to_download in ["bakllava:7b-v1-q4_K_M", "phi", "codellama", "wizardcoder"] + llms:
     session._download_model(llm_to_download)
+session._restart_container()
 
 llm = llms[0]
 
@@ -104,7 +157,7 @@ def sanitize_filename(input_string):
     sanitized_string = re.sub(r"\W+", "_", input_string)
     return sanitized_string
 
-
+@profile
 def synthesize_speech(
     text,
     output_folder_path: str,
@@ -133,7 +186,7 @@ livestream = Livestream(
     "Ai_Academia",
 )
 
-
+@profile
 def generate_episodes():
     global llm_logging, current_llm_i, current_episode_i, llm
     while True:
@@ -150,8 +203,10 @@ def generate_episodes():
                 current_llm_i = 0
             
             #iterate first through all titles and then llms
-            episode_title = episode_titles_to_choose_from[current_episode_i]
-            llm = llms[current_llm_i]
+            # episode_title = episode_titles_to_choose_from[current_episode_i]
+            # llm = llms[current_llm_i]
+            llm = random.choice(llms)
+            episode_title = random.choice(episode_titles_to_choose_from)
             
             
             start_time = time.time()  # Start timer
@@ -164,29 +219,30 @@ def generate_episodes():
                 os.makedirs(WIP_path)
 
             episode = livestream.generate_episode(episode_title, supported_scenes, llm)
-            script_generation_time = time.time() - start_time
+            
+            actions_generation_time = time.time() - start_time
 
-            # write script to WIP
-            with open(WIP_path + "/script.json", "w") as json_file:
+            # write actions to WIP
+            with open(WIP_path + "/actions.json", "w") as json_file:
                 json_file.write(episode.to_json())
             # generate voices
-            for i, action in enumerate(episode.script):
+            for i, action in enumerate(episode.actions):
                 if action.voice_line:
-                    if action.character == "Richard Feynman":
+                    if "Feynman" in action.character or "Richard" in action.character:
                         synthesize_speech(
                             action.voice_line,
                             WIP_path,
                             f"{i}_{action.character}.wav",
                             "./voice_examples/FeynmanShort.wav",
                         )
-                    elif action.character == "Alice":
+                    elif "Alice" in action.character:
                         synthesize_speech(
                             action.voice_line,
                             WIP_path,
                             f"{i}_{action.character}.wav",
                             model="tts_models/en/ljspeech/tacotron2-DDC",
                         )
-                    elif action.character == "Alan Watts":
+                    elif "Watts" in action.character or "Alan" in action.character:
                         synthesize_speech(
                             action.voice_line,
                             WIP_path,
@@ -194,8 +250,10 @@ def generate_episodes():
                             "./voice_examples/AlanWattsShort.wav",
                         )
                 print(
-                    f"\033[38;5;214mGenerating voices: {i+1}/{len(episode.script)}\033[0m"
+                    f"\033[38;5;214mGenerating voices: {i+1}/{len(episode.actions)}\033[0m"
                 )
+                
+            
             
             # move Episode from WIP to ready
             episode_version = 0
@@ -208,26 +266,36 @@ def generate_episodes():
             shutil.rmtree(WIP_path)
 
             # logging llm info
-            if script_generation_time > 3:
+            if actions_generation_time > 3:
                 if llm in llm_logging:
-                    llm_logging[llm].append(script_generation_time)
+                    llm_logging[llm].append(actions_generation_time)
                 else:
-                    llm_logging[llm] = [script_generation_time]
+                    llm_logging[llm] = [actions_generation_time]
 
-            # logging: Script speed evaluation printing
+            # logging: Action speed evaluation printing
             for llm_name in llm_logging.keys():
                 average_time = sum(llm_logging[llm_name]) / len(llm_logging[llm_name])
                 print(
-                    f"\033[38;5;255mAverage Time for {llm_name} to produce script: {average_time:.0f} seconds\033[0m"
+                    f"\033[38;5;255mAverage Time for {llm_name} to produce actions: {average_time:.0f} seconds\033[0m"
                 )
                 
         except Exception as e:
-            print(f"An error occurred: {e}")
-            print("\033[91mAn error occurred:", e, "\033[0m")
+            print("\033[91mAn error occurred:\033[0m", e)
+            
+            # Print file name and line number
+            tb = traceback.extract_tb(e.__traceback__)
+            filename, line, func, text = tb[-1]
+            print(f"\033[93mFile: {filename}, Line: {line}, In: {func}\033[0m")
+
+            # Separately print the full call stack
+            print("\033[94mCall Stack:\033[0m")
+            print("".join(traceback.format_tb(e.__traceback__)))
+            raise(e)
             time.sleep(1)
 
 
 
+@profile
 def set_supported_scenes():
     global supported_scenes
     # Reading the JSON data from the specified file
@@ -238,4 +306,38 @@ def set_supported_scenes():
     supported_scenes = SupportedScenes.from_json(file_data)
     print("Supported scenes set successfully!")
     
+@profile
+def augment_generated_episodes():
+    all_dirs = list(os.walk("./shared/StreamingAssets/"))
+    shuffle(all_dirs)
+    for dirpath, dirnames, filenames in all_dirs:
+        if "actions.json" in filenames:
+            json_path = os.path.join(dirpath, "actions.json")
+
+            with open(json_path, 'r') as file:
+                json_content = json.load(file)
+            start_time = time.time()  # Record start time
+            try:
+                episode = Episode.from_json(json.dumps(json_content))
+            except Exception as e:
+                print(f"Error processing episode: {e}")
+                continue
+
+            elapsed_time = time.time() - start_time  # Calculate elapsed time
+            if elapsed_time > 10 and "StreamingAssets/released_episodes" in dirpath:
+                # Move the entire folder if processing took longer than 10 seconds
+                new_dirpath = dirpath.replace("released_episodes", "unreleased_episodes")
+                shutil.move(dirpath, new_dirpath)
+                # Update actions.json in the new location
+                new_json_path = os.path.join(new_dirpath, "actions.json")
+                with open(new_json_path, 'w') as file:
+                    file.write(episode.to_json())
+            else:
+                # Overwrite the original actions.json if processing was successful and within time limit
+                with open(json_path, 'w') as file:
+                    file.write(episode.to_json())
+
+
+
+# augment_generated_episodes()
 generate_episodes()

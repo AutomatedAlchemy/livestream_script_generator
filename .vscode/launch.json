@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Main",
+            "name": "Python: generateEpisodes",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}/main.py",
+            "program": "${workspaceFolder}/generateEpisodes.py",
             "console": "integratedTerminal",
             "justMyCode": true,
             "args": [

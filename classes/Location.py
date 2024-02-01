@@ -7,10 +7,14 @@ class Location:
         self.title = title
         self.interactableObjects = interactableObjects
 
-    def to_json(self) -> str:
-        return json.dumps({'title': self.title, 'interactableObjects': self.interactableObjects})
+    def to_json(self) -> dict:
+        return self.__dict__
 
     @classmethod
     def from_json(cls, json_str: str) -> 'Location':
-        data = json.loads(json_str)
+        data: dict
+        if (isinstance(json_str, str)):
+            data = json.loads(json_str)
+        elif (isinstance(json_str, dict)):
+            data = json_str
         return cls(data['title'], data['interactableObjects'])
