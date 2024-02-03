@@ -23,10 +23,10 @@ The `livestream_script_generator` is a core component of an innovative project t
 - Internet access for image scraping
 
 ## How to Contribute
-We welcome contributions of all forms. Feel free to fork the project or contribute directly. If you have ideas or feedback, do not hesitate to open an issue or a pull request. Detailed guidelines are available in our CONTRIBUTING.md.
+I welcome all forms of engagement, from GitHub stars to feedback and pull requests. Every interaction, question, or contribution is valuable and helps drive this project forward.
 
 ## Support and Donations
-This project incurs costs for livestream hosting and compute. If you find this project useful or interesting, please consider supporting us through donations. Details can be found in the DONATIONS.md file.
+This project incurs costs for livestream hosting and compute. If you find this project useful or interesting, please consider supporting it through donations.
 
 ## Contact
 For more information, collaboration, or feedback, please contact me [here](https://github.com/Probst1nator).
