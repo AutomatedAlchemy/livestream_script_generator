@@ -26,7 +26,7 @@ We welcome contributions of all forms. Feel free to fork the project or contribu
 This project incurs costs for livestream hosting and compute. If you find this project useful or interesting, please consider supporting us through donations. Details can be found in the DONATIONS.md file.
 
 ## Contact
-For more information, collaboration, or feedback, please contact [Your Contact Information].
+For more information, collaboration, or feedback, please contact [my GitHub profile](https://github.com/Probst1nator).
 
 ## License
 This project is licensed under the GNU General Public License - see the LICENSE.md file for details.
