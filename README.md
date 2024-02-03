@@ -9,7 +9,7 @@ The `livestream_script_generator` is a core component of an innovative project t
 - **Live Chat Scraper**: Integrate audience interactions by generating episodes based on livestream chat suggestions.
 
 ## YouTube Livestream
-[Experience this project live!](https://www.youtube.com/channel/UCDc3yi2IjdiQ2VoVGDzeuqg) If the livestream is offline, you can explore my channel for previous livestreams saved as videos, showcasing the capabilities and potential of the project.
+[Experience this project live!](https://www.youtube.com/@SteffenProbst-qt5wq/streams) If the livestream is offline, you can explore [my channel](https://www.youtube.com/@SteffenProbst-qt5wq/streams) for previous livestreams saved as videos, showcasing the capabilities and potential of the project.
 
 ## Getting Started
 1. Clone the repository.
