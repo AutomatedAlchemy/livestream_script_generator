@@ -1,0 +1,84 @@
+{
+    "show_title": "Ai_Academia",
+    "episode_title": "Mysticism in Modern Science",
+    "characters": [
+        "Richard Feynman",
+        "Alice",
+        "Alan Watts"
+    ],
+    "outline": "In this discussion, Richard Feynman initiates a conversation exploring the nexus of science and mysticism, challenging conventional wisdom. Alice, intrigued by a book merging these fields, questions their compatibility. Alan Watts argues that blending mysticism with science is more reasonable than it appears. Feynman highlights that science often ventures into unknown realms, aligning with mystical thought. Alice is curious about how empirical science and spiritual mysticism might intersect. Watts and Feynman discuss the growing scientific recognition of subjective experiences and consciousness, drawing parallels to quantum mechanics and mystical perspectives. The dialogue, titled 'Science Meets Mysticism', delves into the philosophical overlaps and evolving nature of scientific understanding, bridging the gap between these two domains.",
+    "displayable_content": {
+        "blackboard_caption": "<u>Mysticism in Science</u>\n\n<i>Discovering the divine or ultimate reality by intuition.</i>\n\n<i>Linking consciousness, quantum physics and cosmology.</i>\n\n<i>Asking questions about empirical knowledge and beliefs.</i>\n\n<i>Using different fields of study to explore mysticism.</i>",
+        "blackboard_image": "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",
+        "blackboard_graph": ""
+    },
+    "location": {
+        "title": "classroom",
+        "interactableObjects": [
+            "Camera",
+            "Blackboard image of: Image of a Book that Challenges the Philosophy of Science and Religion"
+        ]
+    },
+    "actions": [
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Hey Alan, I recently found this book in a library. It instantly made me think of you! I brought an image of it with me, have a look!",
+            "looking_at": "Alan Watts",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "The book seems to mix science and mysticism. Is that even appropriate?",
+            "looking_at": "Blackboard image of: Image of a Book that Challenges the Philosophy of Science and Religion",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "Blending Mysticism, or in other words Religion, and Science is not as far-fetched as you might think, Alice!",
+            "looking_at": "Alice",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Indeed, science doesn't only describe what is observable and measurable. It also touches the realms of what we consider 'unknown' or 'unknowable.'",
+            "looking_at": "Alan Watts",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "But isn't science based on empirical evidence and mysticism on personal spiritual experience? How can they converge?",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "It's about perception, Alice. Mysticism often deals with the subjective experience, a realm that science is beginning to appreciate through studies in consciousness and quantum mechanics.",
+            "looking_at": "Alice",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "Exactly, Alan. For instance, quantum mechanics challenges our conventional notions of reality and suggests a more interconnected and less deterministic universe, akin to mystical thought.",
+            "looking_at": "Alan Watts",
+            "walking_to": ""
+        },
+        {
+            "character": "Alice",
+            "voice_line": "So, you're saying there's a philosophical overlap where science meets mysticism?",
+            "looking_at": "Richard Feynman",
+            "walking_to": ""
+        },
+        {
+            "character": "Alan Watts",
+            "voice_line": "Precisely! Both science and mysticism seek to understand the universe and our place in it, albeit through different lenses.",
+            "looking_at": "Alice",
+            "walking_to": ""
+        },
+        {
+            "character": "Richard Feynman",
+            "voice_line": "And let's not forget, the beauty of science is in its ability to evolve with new evidence and perspectives, potentially embracing concepts that were once considered mystical.",
+            "looking_at": "Alan Watts",
+            "walking_to": ""
+        }
+    ]
+}

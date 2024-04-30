@@ -22,7 +22,7 @@ class Action:
         return self.__dict__
 
     @classmethod
-    def from_json(cls, action_data: dict):
+    def from_dict(cls, action_data: dict):
         return cls(
             character=action_data["character"],
             voice_line=action_data.get("voice_line", ""),

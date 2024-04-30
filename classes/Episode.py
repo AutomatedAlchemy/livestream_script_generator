@@ -1,13 +1,9 @@
 import asyncio
 import base64
-import glob
 import json
 import os
-import re
+import shutil
 from typing import List
-
-import aiohttp
-from line_profiler import profile
 
 from classes.Action import Action
 from classes.cls_web_scraper import WebScraper
@@ -17,11 +13,19 @@ from interface.cls_few_shot_factory import FewShotProvider
 from interface.cls_ollama_client import OllamaClient
 
 
-def try_json_to_object(json_string: str) -> object:
+def try_json_to_actions(json_string: str) -> list[Action]:
+    return [Action.from_dict(action_dict) for action_dict in try_dict_to_actions(json_string)]
+
+def try_dict_to_actions(json_string: str) -> list[dict]:
     json_string = json_string.replace("'''json", "").replace("'''", "")
     json_string = json_string.replace("'''json", "").replace("'''", "")
     json_string = json_string.replace(": False", ": false").replace(": True", ": true")
     json_string = json_string.replace("''", '""')
+    json_string = json_string.replace(" '", ' "')
+    json_string = json_string.replace("':", '":')
+    json_string = json_string.replace("{'", '{"')
+    json_string = json_string.replace("', ", '", ')
+
     last_bracket_index = json_string.rfind("]")
     if last_bracket_index != -1:
         try:
@@ -41,7 +45,7 @@ def try_json_to_object(json_string: str) -> object:
             return json.loads(json_string[: last_quote_index + 1] + "}]")
         except:
             pass
-    return None
+    return []
 
 
 def extract_script(script_text: str) -> str:
@@ -74,10 +78,10 @@ class Episode:
         episode_title: str,
         characters: List[str],
         location: Location,
+        llm: str,
         outline: str = "",
         actions: List[Action] = [],
-        llm: str = "orca2",
-        displayable_content: DisplayableContent = None,
+        displayable_content: DisplayableContent | None = None,
         load_only: bool = False,
         loop: asyncio.AbstractEventLoop = asyncio.new_event_loop(),
     ):
@@ -96,24 +100,25 @@ class Episode:
         self.session = OllamaClient()  # Assuming OllamaClient is defined elsewhere
         self.outline: str = outline
         self.actions: List[Action] = actions
+        self.displayable_content: DisplayableContent
         if displayable_content:
-            self.displayable_content: DisplayableContent = displayable_content
+            self.displayable_content = displayable_content
         else:
-            self.displayable_content: DisplayableContent = DisplayableContent()
+            self.displayable_content = DisplayableContent()
 
         if load_only:
             return
 
-        if self.displayable_content.to_json() == DisplayableContent().to_json():
+        while not (self.displayable_content.blackboard_caption and self.displayable_content.blackboard_image):
             self.generate_displayableContent(self.episode_title)
 
-        if self.actions and not self.outline:
+        while self.actions and not self.outline:
             self.outline = self.session.generate_completion(
                 f"Please author an outline of the following episode script of the show '{self.show_title}' script: '''json\n{json.dumps([action.to_json() for action in self.actions])}\n'''",
                 llm,
                 "Sure! In this episode",
             )
-        if len(self.actions) == 0:
+        while len(self.actions) < 5:
             self.generate_actions()
 
     def to_json(self) -> str:
@@ -125,61 +130,55 @@ class Episode:
                 "characters": self.characters,
                 "displayable_content": self.displayable_content.to_json(),
                 "location": self.location.to_json(),
+                "outline": self.outline,
                 "actions": [action.to_json() for action in self.actions],
             },
             indent=4,
         )
 
     @classmethod
-    def from_json(cls, json_str: str, load_only: bool = False):
+    def from_json(cls, json_str: str, llm:str, load_only: bool = False):
         data: dict = json.loads(json_str)
 
         location = Location.from_json(data["location"])
-        actions = [Action.from_json(action) for action in data["actions"]]
+        actions = [Action.from_dict(action) for action in data["actions"]]
         displayable_content = data.get("displayable_content")
         if displayable_content:
+            if isinstance(displayable_content, dict):
+                displayable_content = json.dumps(displayable_content)
             displayable_content = DisplayableContent.from_json(displayable_content)
         # Constructing the Episode instance
+
         episode = cls(
             data["show_title"],
             data["episode_title"],
             data["characters"],
             location,
-            data.get("outline"),
+            llm,
+            str(data.get("outline") if data.get("outline") else ""),
             actions,
             displayable_content=displayable_content,
             load_only=load_only,
         )
+
         return episode
 
-    @profile
     def generate_displayableContent(self, topic: str) -> None:
-        def try_web_image_search() -> str:
-            search_term = topic
-
-            scraper = WebScraper()
-            self.loop.run_until_complete(
-                scraper.initialize_image_fetcher(search_term, 100)
-            )
-
-
+        def try_web_image_search(search_term: str) -> tuple[str, str]:
             def image_fits_topic(base64_image: str) -> bool:
                 image_description: str = self.session.generate_completion(
                     f"What is shown in the image?",
-                    "bakllava:7b-v1-q4_K_M",
+                    "llava:v1.6",
                     images=[base64_image],
                 )
-                i: int = len([f for f in os.listdir("./test/")])
-                with open(f"./test/{str(i)}.jpg", "wb") as file:
+                i: int = len([f for f in os.listdir("./cache/scraped_images/")])
+                with open(f"./cache/scraped_images/{str(i)}.jpg", "wb") as file:
                     file.write(base64.b64decode(base64_image))
                 if not image_description:
                     return False
 
-                is_topic_appropriate_response = (
-                    FewShotProvider.few_shot_isImageTopicAppropriate(
-                        self.episode_title, image_description, self.llm
-                    )
-                )
+                is_topic_appropriate_response:str = FewShotProvider.few_shot_isImageTopicAppropriate(self.episode_title, image_description, self.llm)
+                is_topic_appropriate_response = FewShotProvider.few_shot_convertToYesNo(is_topic_appropriate_response, self.llm)
 
                 print("\033[92m" + "SEARCHED KEYWORD: " + search_term + "\033[0m")
                 print("\033[92m" + "TOPIC: " + topic + "\033[0m")
@@ -188,17 +187,18 @@ class Episode:
 
                 return "yes" in is_topic_appropriate_response.lower()
 
-            os.makedirs("./test", exist_ok=True)
-            fitting_image_base64 = self.loop.run_until_complete(
-                scraper.get_next_image_as_base64(image_fits_topic)
-            )
+            shutil.rmtree("./cache/scraped_images")
+            os.makedirs("./cache/scraped_images", exist_ok=True)
+
+            scraper = WebScraper(search_term)
+            fitting_image_base64 = scraper.get_images_as_base64(image_fits_topic)
 
             if fitting_image_base64:
-                with open(f"./test/true_image.jpg", "wb") as file:
+                with open(f"./cache/scraped_images/true_image.jpg", "wb") as file:
                     file.write(base64.b64decode(fitting_image_base64))
                 image_description: str = self.session.generate_completion(
                     f"What is shown in the image?",
-                    "bakllava:7b-v1-q4_K_M",
+                    "llava:v1.6",
                     images=[fitting_image_base64],
                 )
                 image_title: str = self.session.generate_completion(
@@ -208,10 +208,8 @@ class Episode:
                 ).split("'")[1]
 
                 return fitting_image_base64, image_title
-            else:
-                print("\033[91m Did not find any appropriate image on the web! \033[0m")
-                raise (Exception("This seems like an issue?"))
-            return "", ""
+            
+            return "",""
 
         # @profile
         # def try_python_visualization():
@@ -296,55 +294,52 @@ class Episode:
         # if (python_visualization):
         #     self.displayable_content = python_visualization
         #     return
-        scraped_visualization, image_title = try_web_image_search()
+        scraped_visualization, image_title = try_web_image_search(topic)
+        while not scraped_visualization:
+            modified_search_term: str = FewShotProvider.few_shot_topicToSearch(topic, self.llm)
+            print(f"\033[91m Did not find any appropriate image on the web! New search term: {modified_search_term}\033[0m")
+            scraped_visualization, image_title = try_web_image_search(modified_search_term)
+            
         if scraped_visualization:
-            self.location.interactableObjects.append(
-                "Blackboard image of: " + image_title
-            )
+            self.location.interactableObjects.append("Blackboard image of: " + image_title)
             self.displayable_content.blackboard_image = scraped_visualization
 
-            blackboard_caption = FewShotProvider.few_shot_generateBlackboardCaption(
-                topic, image_title, self.llm
-            )
-            blackboard_caption.split("'''chalkboard_caption\n")[1].split("'''")[
-                0
-            ].strip("\n").strip().strip("\n").strip()
+            blackboard_caption: str = FewShotProvider.few_shot_generateBlackboardCaption(topic, image_title, self.llm)
+            blackboard_caption = blackboard_caption.split("'''chalkboard_caption")[1].split("'''")[0].strip("\n").strip().strip("\n").strip()
             if len(blackboard_caption) > 500:
-                blackboard_caption: str = self.session.generate_completion(
-                    f"Please boil down the following blackboard caption for use on a smaller blackboard: '{blackboard_caption}'.",
+                blackboard_caption = self.session.generate_completion(
+                    f"Please boil down the following blackboard caption for use on a smaller blackboard.\n'''chalkboard_caption\n{blackboard_caption}'''",
                     self.llm,
-                    "Sure!\n'''chalkboard_caption\n",
+                    "Sure! I will condense the caption while retaining its most important ideas.\n'''chalkboard_caption\n",
                 )
-                blackboard_caption.split("'''chalkboard_caption\n")[1].split("'''")[
-                    0
-                ].strip("\n").strip().strip("\n").strip()
+                blackboard_caption = blackboard_caption.split("'''chalkboard_caption")[1].split("'''")[0].strip("\n").strip().strip("\n").strip()
 
             self.displayable_content.blackboard_caption = blackboard_caption
 
-    @profile
-    def generate_actions(self, regenerate_outline: bool = False) -> List[Action]:
+    def generate_actions(self, regenerate_outline: bool = False) -> None:
         if (not self.outline) or regenerate_outline:
-            self.outline: str = FewShotProvider.few_shot_topicToEpisodeOutline(
+            self.outline = FewShotProvider.few_shot_topicToEpisodeOutline(
                 self.episode_title,
                 self.characters,
                 self.location,
                 self.llm,
                 self.show_title,
             )
-        temperature = 0.95
-        actions: List[Action] = None
-        while not actions:
-            actions_str = FewShotProvider.few_shot_outlineToActions(
-                self.outline, self.llm, temperature
-            )
-            actions: List[Action] = try_json_to_object(actions_str)
-            temperature -= 0.1
-            if not actions:
-                print(
-                    f"\033[91mWarning: Received json actions has invalid format. Adjusting temperature to {temperature} and retrying...\033[0m"
-                )
+        temperature = 0.75
+        actions: List[Action] = []
+        while True:
+            try:
+                actions_str = FewShotProvider.few_shot_outlineToActions(self.outline, self.llm, temperature)
+                actions = try_json_to_actions(actions_str)
+                temperature -= 0.1
+                if not actions:
+                    raise Exception(f"\033[91mWarning: Received json actions has invalid format. Adjusting temperature to {temperature} and retrying...\033[0m")
+                if len(actions) < 4:
+                    raise Exception(f"\033[91mWarning: Actions have a too short length of {len(actions)}. Adjusting temperature to {temperature} and retrying...\033[0m")
+                break
+            except Exception as e:
+                print(e)
                 if temperature <= 0.1:
-                    return self.generate_actions(
-                        True
-                    )  # The outline seems to break the few_shot_outlineToActions method, let's generate a new outline an retry
-        self.actions = [Action.from_json(action) for action in actions]
+                    return self.generate_actions(True)  # The outline seems to break the few_shot_outlineToActions method, let's generate a new outline an retry
+        # self.actions = [Action.from_dict(action for action in actions]
+        self.actions = actions

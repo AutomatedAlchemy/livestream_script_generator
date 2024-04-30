@@ -17,7 +17,7 @@ class Livestream:
         num_to_select = random.randint(1, len(my_list))  # Number of elements to select
         return random.sample(my_list, num_to_select)
 
-    def generate_episode(self, episode_title: str, supported_scenes: SupportedScenes, llm:str = "orca2") -> Episode:
+    def generate_episode(self, episode_title: str, supported_scenes: SupportedScenes, llm:str) -> Episode:
         episode = Episode(
             self.title,
             episode_title,

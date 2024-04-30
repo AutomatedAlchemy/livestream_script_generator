@@ -1,2 +1,4 @@
 cache/*
 StreamingAssets/
+.google-cookie
+client_secret.json

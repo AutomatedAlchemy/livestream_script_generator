@@ -5,14 +5,22 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python: Run Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": []
+        },
+        {
             "name": "Python: generateEpisodes",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}/generateEpisodes.py",
+            "program": "${workspaceFolder}/scripts/generateEpisodes.py",
             "console": "integratedTerminal",
             "justMyCode": true,
-            "args": [
-            ]
+            "args": []
         }
     ]
 }
